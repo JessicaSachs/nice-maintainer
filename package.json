@@ -1,0 +1,65 @@
+{
+  "name": "@nice-developer/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Tools to make maintaining packages a little more pleasant for everyone.",
+  "keywords": [
+    "open-source",
+    "tools"
+  ],
+  "homepage": "https://nice-maintainer.sh/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicasachs/nice-maintainer.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/jessicasachs"
+  },
+  "license": "MIT",
+  "author": "Jessica Sachs<https://github.com/jessicasachs>",
+  "type": "module",
+  "scripts": {
+    "check": "tsc --incremental --noEmit --project ./tsconfig.json",
+    "dev": "pnpm run \"/^dev:.*/\"",
+    "dev:core": "pnpm run --filter core dev",
+    "dev:docs": "pnpm run --filter docs dev",
+    "postinstall": "simple-git-hooks",
+    "lint": "eslint --cache --ext .ts packages/*/src/**.ts"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged && pnpm check"
+  },
+  "lint-staged": {
+    "*.{cjs,mjs,js,jsx,json,md}": [
+      "prettier --write"
+    ],
+    "**/*.astro": [
+      "eslint"
+    ],
+    "**/*.tsx?": [
+      "eslint",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.21.6",
+    "@types/node": "^20.5.7",
+    "@typescript-eslint/parser": "^6.5.0",
+    "eslint": "^8.48.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "simple-git-hooks": "^2.9.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0"
+  },
+  "packageManager": "pnpm@8.6.12",
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  }
+}

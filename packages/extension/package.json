@@ -1,0 +1,42 @@
+{
+  "name": "@nice-maintainer/chrome-extension",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Chrome extension for Nice Maintainer",
+  "keywords": ["chrome-extension", "extension", "chat-gpt", "ai", "open-source"],
+  "bugs": {
+    "url": "https://github.com/jessicasachs/nice-maintainer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessicasachs/nice-maintainer",
+    "directory": "packages/config"
+  },
+  "funding": "https://github.com/sponsors/jessicasachs",
+  "author": "Jessica Sachs<jess@jessicasachs.io>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "tsx watch ./src/index.ts"
+  },
+  "dependencies": {
+    "unconfig": "^0.3.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
