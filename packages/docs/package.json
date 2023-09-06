@@ -10,6 +10,13 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "astro": "^2.10.14"
+    "@unocss/preset-typography": "^0.55.7",
+    "astro": "^2.10.14",
+    "unocss": "0.55.7"
+  },
+  "devDependencies": {
+    "@unocss/astro": "^0.55.7",
+    "@unocss/reset": "^0.55.7",
+    "@unocss/transformer-variant-group": "^0.55.7"
   }
 }
