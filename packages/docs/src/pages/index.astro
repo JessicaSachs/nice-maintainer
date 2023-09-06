@@ -1,15 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import LayoutProse from '../layouts/LayoutProse.astro'
+import { Content } from '../../../../README.md'
 ---
 
-<Layout title="Nice Maintainer">
-  <main>
-    <h1 class="text-center mt-[80px] text-4xl">
-      <a
-        class="underline"
-        href="https://github.com/jessicasachs/nice-maintainer"
-        >🌸 Nice Maintainer</a
-      >
-    </h1>
+<LayoutProse title="Nice Maintainer">
+  <main class="prose text-lg mt-[80px]">
+    <Content />
   </main>
-</Layout>
+</LayoutProse>
+
+<style is:global>
+  *[align='center'] {
+    @apply mx-auto! text-center!;
+  }
+</style>
